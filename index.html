@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="js/script.js">
+
+    <title>API</title>
+</head>
+<body>
+
+    <!-- Screen-1 (Save and Update) -->
+    <a href="Screen_2.html" style="background-color: red; color: white; padding: 10px 30px; float: right; text-decoration: none;">Go to Screen 2</a>
+<!-- Screen-1 (Save, Update, and View) --><!-- Screen-1 (Save, Update, and View) -->
+<!-- Screen-1 (Save, Update, and View) -->
+<!-- Screen-1 (Save, Update, and View) -->
+<h1>Screen-1</h1>
+<form action="save_location.php" method="POST">
+    <label for="latitude">Enter Latitude:</label>
+    <input type="text" id="latitude" name="latitude" required>
+    
+    <label for="longitude">Enter Longitude:</label>
+    <input type="text" id="longitude" name="longitude" required>
+    
+    <button type="submit" name="save">Save</button>
+</form>
+
+<!-- Update section -->
+<h2>Update Location</h2>
+<form action="update_location.php" method="POST">
+    <label for="updateLatitude">New Latitude:</label>
+    <input type="text" id="updateLatitude" name="updateLatitude" required>
+    
+    <label for="updateLongitude">New Longitude:</label>
+    <input type="text" id="updateLongitude" name="updateLongitude" required>
+    
+    <button type="submit" name="update">Update</button>
+</form>
+
+<!-- View section -->
+<h2>View Locations</h2>
+<button type="button" onclick="viewLocations()">View</button>
+<div id="view-results"></div>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <p id="modalMessage"></p>
+    </div>
+  </div>
+
+  
+<script>
+    // JavaScript for the "View" Button
+    function viewLocations() {
+        // Use AJAX to fetch data from view_locations.php
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "view_locations.php", true);
+
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                // Display the results in the "view-results" div
+                document.getElementById("view-results").innerHTML = xhr.responseText;
+            }
+        };
+
+        xhr.send();
+    }
+</script>
+</body>
+</html>

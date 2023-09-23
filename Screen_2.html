@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="js/script.js">
+
+</head>
+<body>
+    <!-- Screen-2 (Calculate Distance) -->
+    <a href="index.html" style="background-color: red; color: white; padding: 10px 30px; float: right; text-decoration: none;">Go to Screen 2</a>
+
+<h1>Screen-2</h1>
+<form action="calculate_distance.php" method="POST">
+    <label for="fromLatitude">From Latitude:</label>
+    <input type="text" id="fromLatitude" name="fromLatitude" required>
+    
+    <label for="fromLongitude">From Longitude:</label>
+    <input type="text" id="fromLongitude" name="fromLongitude" required>
+    
+    <label for="toLatitude">To Latitude:</label>
+    <input type="text" id="toLatitude" name="toLatitude" required>
+    
+    <label for="toLongitude">To Longitude:</label>
+    <input type="text" id="toLongitude" name="toLongitude" required>
+    
+    <label for="unit">Unit (KM/Miles):</label>
+    <select id="unit" name="unit">
+        <option value="KM">KM</option>
+        <option value="Miles">Miles</option>
+    </select>
+    
+    <button type="submit" name="calculate">Calculate Distance</button>
+</form>
+
+</body>
+</html>
